@@ -6,7 +6,7 @@
 # DATA=data/ilsvrc12
 # TOOLS=build/tools
 
-EXAMPLE=/home/pussycat/finetune_caffe_model/training_files
+EXAMPLE=/home/pussycat/finetune_caffe_model/data/mdb_files
 DATA=/home/pussycat/finetune_caffe_model/data/dataset_info
 TOOLS=/home/pussycat/caffe/build/tools
 
