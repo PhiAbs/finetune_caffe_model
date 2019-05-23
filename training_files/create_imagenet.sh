@@ -8,7 +8,7 @@ DATA=/home/pussycat/finetune_caffe_model/data/dataset_info
 TOOLS=/home/pussycat/caffe/build/tools
 
 TRAIN_DATA_ROOT=/home/pussycat/finetune_caffe_model/data/train/
-VAL_DATA_ROOT=/home/pussycat/finetune_caffe_model/data/val/
+VAL_DATA_ROOT=/home/pussycat/finetune_caffe_model/data/train/
 
 # Set RESIZE=true to resize the images to 256x256. Leave as false if images have
 # already been resized using another tool.

@@ -9,7 +9,7 @@ display: 20
 max_iter: 100000
 momentum: 0.9
 weight_decay: 0.0005
-debug_info: true
+debug_info: false
 snapshot: 5000
-snapshot_prefix: "/home/pussycat/finetune_caffe_model/models/caffenet/run_face_animal_ball01_ball02_ball03"
+snapshot_prefix: "/home/pussycat/finetune_caffe_model/models/caffenet/run_animal_gender_tennisball_soccerball_basketball"
 solver_mode: GPU

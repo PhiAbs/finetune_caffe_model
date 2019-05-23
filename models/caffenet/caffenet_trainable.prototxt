@@ -393,7 +393,8 @@ layer {
 }
 layer {
   name: "loss_DL_PROJECT"
-  type: "Softmax"
+  type: "SoftmaxWithLoss"
   bottom: "fc8_DL_PROJECT"
+  bottom: "label"
   top: "loss_DL_PROJECT"
 }
