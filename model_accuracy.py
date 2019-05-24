@@ -4,9 +4,9 @@ import sys
 import numpy as np
 import re
 
-model_def = '/home/pussycat/ppgn/nets/caffenet_DL_PROJECT/caffenet_deploy.prototxt'
+model_def = '/home/pussycat/finetune_caffe_model/models/caffenet/caffenet_deploy.prototxt'
 #model_def = '/home/pussycat/finetune_caffe_model/models/caffenet/deploy.prototxt'
-model_weight = '/home/pussycat/finetune_caffe_model/models/caffenet/caffenet_train_snapshot/solver_iter_55000.caffemodel'
+model_weight = '/home/pussycat/finetune_caffe_model/models/caffenet/run_animal_gender_tennisball_soccerball_basketball/solver_iter_95000.caffemodel'
 
 
 net = caffe.Net(model_def, model_weight, caffe.TEST)
@@ -25,7 +25,7 @@ transformer.set_transpose('data', (2,0,1))
 transformer.set_raw_scale('data', 255)
 transformer.set_channel_swap('data', (2,1,0))
 
-test_img_dir = '/home/pussycat/finetune_caffe_model/data/test/'
+test_img_dir = '/home/pussycat/finetune_caffe_model/data/train/'
 
 sub_dir_list = [x[0] for x in os.walk(test_img_dir)]
 
@@ -65,5 +65,5 @@ for line in f:
 	else:
 		_false += 1
 
-print('Pussycat Accurary is ' + str(float(_true/(_true+_false))))
+print('Pussycat Test Accurary is ' + str(float(_true/(_true+_false))))
 
