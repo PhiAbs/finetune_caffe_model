@@ -39,37 +39,42 @@ _false = 0.0
 
 for line in f:
 	
+	if line == '':
+		continue	
+	
 	line = str(line)
 
 	img = line[ : -4]
 	#print(img)
 	pattern = '\d'
-        match = re.search(pattern, line)
-        num = line[match.start():match.end()]
-	target_neuron = int(num)
-	#print(target_neuron)
-	img_path = os.path.join(test_img_dir, img)
+        l = line[-3:-1]
+        match = re.search(pattern, l)
+	if match:
+	        num = l[match.start():match.end()]
+		target_neuron = int(num)
+		#print(target_neuron)
+		img_path = os.path.join(test_img_dir, img)
 
-	image = caffe.io.load_image(str(img_path)) 
+		image = caffe.io.load_image(str(img_path)) 
 
-	transformed_image = transformer.preprocess('data', image)
+		transformed_image = transformer.preprocess('data', image)
 
-	net.blobs['data'].reshape(50,3, 227, 227) 
+		net.blobs['data'].reshape(50,3, 227, 227) 
 
-	net.blobs['data'].data[...] = transformed_image
+		net.blobs['data'].data[...] = transformed_image
 
-	output = net.forward()
+		output = net.forward()
 
-	output_prob = output['log'][0]
+		output_prob = output['log'][0]
 
-	#print(output_prob.argmax())
+		#print(output_prob.argmax())
 
-	#print(str(target_neuron) + ' ' +str( output_prob.argmax()))
+		#print(str(target_neuron) + ' ' +str( output_prob.argmax()))
 
-	if target_neuron == output_prob.argmax():
-		_true += 1
-	else:
-		_false += 1
+		if target_neuron == output_prob.argmax():
+			_true += 1
+		else:
+			_false += 1
 
 print('Pussycat Test Accurary is ' + str(float(_true/(_true+_false))))
 
@@ -83,29 +88,32 @@ _true = 0.0
 _false = 0.0
 
 for i,line in enumerate(f):
-        
+	if line == '':
+		continue        
         line = str(line)
         img = line[ : -4]
         #print(img)
 	pattern = '\d'
-        match = re.search(pattern, line)
-        num = line[match.start():match.end()]
-        target_neuron = int(num)
+	l = line[-3:-1]
+        match = re.search(pattern, l)
+        if match:
+		num = l[match.start():match.end()]
+        	target_neuron = int(num)
         
-        #print(str(i) + ' : ' + str(target_neuron))
-        img_path = os.path.join(test_img_dir, img)
-        image = caffe.io.load_image(str(img_path)) 
-        transformed_image = transformer.preprocess('data', image)
-        net.blobs['data'].reshape(50,3, 227, 227) 
-        net.blobs['data'].data[...] = transformed_image
-        output = net.forward()
-        output_prob = output['log'][0]
-        #print(output_prob.argmax())
-        #print(str(target_neuron) + ' ' +str( output_prob.argmax()))
-        if target_neuron == output_prob.argmax():
-                _true += 1
-        else:
-                _false += 1
+        	#print(str(i) + ' : ' + str(target_neuron))
+       		img_path = os.path.join(test_img_dir, img)
+        	image = caffe.io.load_image(str(img_path)) 
+        	transformed_image = transformer.preprocess('data', image)
+        	net.blobs['data'].reshape(50,3, 227, 227) 
+        	net.blobs['data'].data[...] = transformed_image
+        	output = net.forward()
+        	output_prob = output['log'][0]
+        	#print(output_prob.argmax())
+        	#print(str(target_neuron) + ' ' +str( output_prob.argmax()))
+        	if target_neuron == output_prob.argmax():
+                	_true += 1
+        	else:
+                	_false += 1
 print('Pussycat Train Accurary is ' + str(float(_true/(_true+_false))))
 
 f.close()
