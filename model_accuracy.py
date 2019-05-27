@@ -1,4 +1,5 @@
 
+
 import caffe
 import os
 import sys
@@ -7,7 +8,7 @@ import re
 
 model_def = '/home/pussycat/finetune_caffe_model/models/caffenet/caffenet_deploy.prototxt'
 #model_def = '/home/pussycat/finetune_caffe_model/models/caffenet/deploy.prototxt'
-model_weight = '/home/pussycat/finetune_caffe_model/models/caffenet/run_animal_gender_tennisball_soccerball_basketball/solver_iter_100000.caffemodel'
+model_weight = '/home/pussycat/finetune_caffe_model/models/caffenet/run_animal_gender_tennisball_soccerball_basketball/solver_iter_50000.caffemodel'
 
 
 net = caffe.Net(model_def, model_weight, caffe.TEST)
