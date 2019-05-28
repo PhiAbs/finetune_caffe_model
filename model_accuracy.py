@@ -1,5 +1,4 @@
 
-
 import caffe
 import os
 import sys
@@ -8,7 +7,7 @@ import re
 
 model_def = '/home/pussycat/finetune_caffe_model/models/caffenet/caffenet_deploy.prototxt'
 #model_def = '/home/pussycat/finetune_caffe_model/models/caffenet/deploy.prototxt'
-model_weight = '/home/pussycat/finetune_caffe_model/models/caffenet/run_animal_gender_tennisball_soccerball_basketball/solver_iter_50000.caffemodel'
+model_weight = '/home/pussycat/finetune_caffe_model/models/caffenet/run_dog_cat_female_male_ball/solver_iter_55000.caffemodel'
 
 
 net = caffe.Net(model_def, model_weight, caffe.TEST)
@@ -33,7 +32,7 @@ sub_dir_list = [x[0] for x in os.walk(test_img_dir)]
 
 ################################# Test Accuracy #################################
 
-f = open('/home/pussycat/finetune_caffe_model/data/dataset_info/test.txt')
+f = open('/home/pussycat/finetune_caffe_model/data/dataset_info/test_run2.txt')
 
 _true = 0.0
 _false = 0.0
@@ -83,7 +82,7 @@ f.close()
 
 ################################# Train  Accuracy #################################
 
-f = open('/home/pussycat/finetune_caffe_model/data/dataset_info/train.txt')
+f = open('/home/pussycat/finetune_caffe_model/data/dataset_info/train_run2.txt')
  
 _true = 0.0
 _false = 0.0

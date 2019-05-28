@@ -7,8 +7,8 @@ EXAMPLE=/home/pussycat/finetune_caffe_model/data/mdb_files
 DATA=/home/pussycat/finetune_caffe_model/data/dataset_info
 TOOLS=/home/pussycat/caffe/build/tools
 
-TRAIN_DATA_ROOT=/home/pussycat/finetune_caffe_model/data/train/
-VAL_DATA_ROOT=/home/pussycat/finetune_caffe_model/data/train/
+TRAIN_DATA_ROOT=/home/pussycat/finetune_caffe_model/data/pictures/
+VAL_DATA_ROOT=/home/pussycat/finetune_caffe_model/data/pictures/
 
 # Set RESIZE=true to resize the images to 256x256. Leave as false if images have
 # already been resized using another tool.
@@ -42,7 +42,7 @@ GLOG_logtostderr=1 $TOOLS/convert_imageset \
     --resize_width=$RESIZE_WIDTH \
     --shuffle \
     $TRAIN_DATA_ROOT \
-    $DATA/train.txt \
+    $DATA/train_run2.txt \
     $EXAMPLE/train_lmdb
 
 echo "Creating val lmdb..."
@@ -52,7 +52,7 @@ GLOG_logtostderr=1 $TOOLS/convert_imageset \
     --resize_width=$RESIZE_WIDTH \
     --shuffle \
     $VAL_DATA_ROOT \
-    $DATA/val.txt \
+    $DATA/val_run2.txt \
     $EXAMPLE/val_lmdb
 
 echo "Done."
