@@ -11,5 +11,5 @@ momentum: 0.9
 weight_decay: 0.0005
 debug_info: true
 snapshot: 5000
-snapshot_prefix: "/home/pussycat/finetune_caffe_model/models/caffenet/run2b_cat_baseball_car_airplane_face"
+snapshot_prefix: "/home/pussycat/finetune_caffe_model/models/caffenet/run2b_dog_cat_female_male_ball_continued/"
 solver_mode: GPU
